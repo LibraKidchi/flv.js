@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const pkg = require('./package.json');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
@@ -33,7 +32,7 @@ let config = {
 
     plugins: [
         new webpack.DefinePlugin({
-            __VERSION__: JSON.stringify(pkg.version)
+            __VERSION__: JSON.stringify((require('./package.json')).version)
         })
     ],
 
